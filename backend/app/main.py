@@ -6,15 +6,15 @@ from core.database import get_db
 from models import user, course, shop, fitness
 
 from routers import fitness as router_fitness
+from routers import user as router_user
+from routers import course as router_course
 
 app = FastAPI(title="GymCloud Sinergy", version="1.0.0")
 
 
 app.include_router(router_fitness.router)
-
-@app.get("/")
-def read_root():
-    return {"status": "online", "message": "Backend pronto e router fitness attivo!"}
+app.include_router(router_user.router)
+app.include_router(router_course.router)
 
 app.add_middleware(
     CORSMiddleware,
