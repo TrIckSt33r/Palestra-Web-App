@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, Time, Date, DateTime, Boolean, ForeignKey, SmallInteger
 from sqlalchemy.orm import relationship
-from app.core.database import Base
+from core.database import Base
 from datetime import datetime
 
 class GymSchedule(Base):
