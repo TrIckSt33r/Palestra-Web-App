@@ -8,6 +8,7 @@ from models import user, course, shop, fitness
 from routers import fitness as router_fitness
 from routers import user as router_user
 from routers import course as router_course
+from routers import shop as router_shop
 
 app = FastAPI(title="GymCloud Sinergy", version="1.0.0")
 
@@ -15,6 +16,7 @@ app = FastAPI(title="GymCloud Sinergy", version="1.0.0")
 app.include_router(router_fitness.router)
 app.include_router(router_user.router)
 app.include_router(router_course.router)
+app.include_router(router_shop.router)
 
 app.add_middleware(
     CORSMiddleware,
