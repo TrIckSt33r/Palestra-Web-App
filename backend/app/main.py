@@ -5,7 +5,16 @@ from sqlalchemy import text
 from core.database import get_db
 from models import user, course, shop, fitness
 
+from routers import fitness as router_fitness
+
 app = FastAPI(title="GymCloud Sinergy", version="1.0.0")
+
+
+app.include_router(router_fitness.router)
+
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "Backend pronto e router fitness attivo!"}
 
 app.add_middleware(
     CORSMiddleware,
